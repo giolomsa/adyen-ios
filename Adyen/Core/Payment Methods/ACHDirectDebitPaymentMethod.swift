@@ -25,8 +25,13 @@ public struct ACHDirectDebitPaymentMethod: PaymentMethod {
         DisplayInformation(title: name.uppercased(), subtitle: nil, logoName: type.rawValue)
     }
 
+    public init(type: PaymentMethodType, name: String, merchantProvidedDisplayInformation: MerchantCustomDisplayInformation? = nil) {
+        self.type = type
+        self.name = name
+        self.merchantProvidedDisplayInformation = merchantProvidedDisplayInformation
+    }
+    
     // MARK: - Private
-
     private enum CodingKeys: String, CodingKey {
         case type
         case name
